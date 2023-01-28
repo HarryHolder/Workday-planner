@@ -28,6 +28,7 @@ textarea {
 .time-block {
   text-align: center;
   border-radius: 15px;
+  border: 1px solid red;
 }
 
 .row {
@@ -69,7 +70,7 @@ textarea {
   background-color: #06aed5;
   color: white;
   background-image: url("../images/savebtn.png");
-  background-size: 50%;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }

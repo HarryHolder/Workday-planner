@@ -23,119 +23,68 @@
   </head>
 
   <body>
+    <!-- Jumbotron with current date -->
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+
+    <!-- Grid for hours/tasks/save button -->
     <div class="container">
-      <!-- 9 block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-9am">9:00am</div>
-        <div
-          class="task col-sm-10"
-          id="9am-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="9am-btn">
-        </button>
+      <!-- 9am block -->
+      <div class="row time-block" id="9am-block">
+        <div class="col-md-1 col-2 col-2 hour" id="9am">9:00 AM</div>
+        <textarea class="col-md-10 col-10 task" id="9am-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="9am-btn"></button>
       </div>
-      <!-- 10 block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-10am">10:00am</div>
-        <div
-          class="task col-sm-10"
-          id="10am-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="10am-btn">
-        </button>
+      <!-- 10am block -->
+      <div class="row time-block" id="10am-block">
+        <div class="col-md-1 col-2 hour" id="10am">10:00 AM</div>
+        <textarea class="col-md-10 col-10 task" id="10am-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="10am-btn"></button>
       </div>
-      <!-- 11 block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-11am">11:00am</div>
-        <div
-          class="task col-sm-10"
-          id="11am-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="11am-btn">
-        </button>
+      <!-- 11am block -->
+      <div class="row time-block" id="11am-block">
+        <div class="col-md-1 col-2 hour" id="11am">11:00 AM</div>
+        <textarea class="col-md-10 col-10 task" id="11am-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="11am-btn"></button>
       </div>
-      <!-- 12 block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-12pm">12:00pm</div>
-        <div
-          class="task col-sm-10"
-          id="12pm-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="12pm-btn">
-        </button>
+      <!-- 12pm block -->
+      <div class="row time-block" id="12pm-block">
+        <div class="col-md-1 col-2 hour" id="12pm">12:00 PM</div>
+        <textarea class="col-md-10 col-10 task" id="12pm-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="12pm-btn"></button>
       </div>
       <!-- 1pm block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-1pm">1:00pm</div>
-        <div
-          class="task col-sm-10"
-          id="1pm-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="1pm-btn">
-        </button>
+      <div class="row time-block" id="1pm-block">
+        <div class="col-md-1 col-2 hour" id="1pm">1:00 pm</div>
+        <textarea class="col-md-10 col-10 task" id="1pm-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="1pm-btn"></button>
       </div>
       <!-- 2pm block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-2pm">2:00pm</div>
-        <div
-          class="task col-sm-10"
-          id="2pm-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="2pm-btn">
-        </button>
+      <div class="row time-block" id="2pm-block">
+        <div class="col-md-1 col-2 hour" id="2pm">2:00 PM</div>
+        <textarea class="col-md-10 col-10 task" id="2pm-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="2pm-btn"></button>
       </div>
       <!-- 3pm block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-3pm">3:00pm</div>
-        <div
-          class="task col-sm-10"
-          id="3pm-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="3pm-btn">
-        </button>
+      <div class="row time-block" id="3pm-block">
+        <div class="col-md-1 col-2 hour" id="3pm">3:00 PM</div>
+        <textarea class="col-md-10 col-10 task" id="3pm-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="3pm-btn"></button>
       </div>
       <!-- 4pm block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-4pm">4:00pm</div>
-        <div
-          class="task col-sm-10"
-          id="4pm-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="4pm-btn">
-        </button>
+      <div class="row time-block" id="4pm-block">
+        <div class="col-md-1 col-2 hour" id="4pm">4:00 PM</div>
+        <textarea class="col-md-10 col-10 task" id="4pm-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="4pm-btn"></button>
       </div>
       <!-- 5pm block -->
-      <div class="row time-block">
-        <div class="hour col-sm-1" for="hour-5pm">5:00pm</div>
-        <div
-          class="task col-sm-10"
-          id="5pm-block"
-          type="text"
-          name="timeblock-9"
-        ></div>
-        <button class="btn saveBtn col-sm-1 col-12" id="5pm-btn">
-        </button>
+      <div class="row time-block" id="5pm-block">
+        <div class="col-md-1 col-2 hour" id="5pm">5:00 PM</div>
+        <textarea class="col-md-10 col-10 task" id="5pm-task"></textarea>
+        <button class="col-md-1 col-12 btn saveBtn" id="5pm-btn"></button>
       </div>
     </div>
 
