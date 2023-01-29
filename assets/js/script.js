@@ -1,10 +1,8 @@
 // Run function for whole page
 function init() {
-  currentDateDisplay();
-  updateClass();
+  currentDateDisplay(); // display the date at the top of the page
+  updateClass(); // change the timeblock style depending on if past/current/future task
 }
-
-// 1. Display the current day at the top of the calender when a user opens the planner.
 
 function currentDateDisplay() {
   let todaysDateEl = $("#currentDay");
@@ -14,7 +12,7 @@ function currentDateDisplay() {
 
 // 2. Present timeblocks for standard business hours when the user scrolls down.
 // Bootstrap grid rows for each hour
-// 3 cols - hour, task, save button
+// cols - hour, task, save button
 
 // 3. Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 // 3 css classes for past, current and future tasks
@@ -29,7 +27,7 @@ function updateClass() {
     if ($(this).attr("id") > currentTime) {
       $(this).removeClass("current past");
       $(this).addClass("future");
-    } else if ($(this).attr("id") === currentTime) {
+    } else if ($(this).attr("id") == currentTime) {
       $(this).removeClass("future past");
       $(this).addClass("current");
     } else if ($(this).attr("id") < currentTime) {
@@ -38,8 +36,19 @@ function updateClass() {
     }
   });
 }
-updateClass();
+
 // Allow a user to enter an event when they click a timeblock
+
+$(".saveBtn").click(function () {
+  let task9 = document.getElementById("9");
+  localStorage.setItem('input9', task9.value);
+  let task10 = document.getElementById("10");
+  localStorage.setItem('input10', task10.value);
+  let task11 = document.getElementById("11");
+  localStorage.setItem('input11', task11.value);
+  let task12 = document.getElementById("12");
+  localStorage.setItem('input12', task12.value);
+})
 
 // Save the event in local storage when the save button is clicked in that timeblock.
 
