@@ -1,8 +1,7 @@
-// Run function for whole page
 function init() {
   currentDateDisplay(); // display the date at the top of the page
   updateClass(); // change the timeblock style depending on if past/current/future task
-  loadTasks();
+  loadTasks(); // Task to retrieve saved data from local storage 
 }
 
 function currentDateDisplay() {
@@ -10,14 +9,6 @@ function currentDateDisplay() {
   let todaysDate = moment().format("dddd, LL");
   todaysDateEl.text(todaysDate);
 }
-
-// 2. Present timeblocks for standard business hours when the user scrolls down.
-// Bootstrap grid rows for each hour
-// cols - hour, task, save button
-
-// 3. Color-code each timeblock based on past, present, and future when the timeblock is viewed.
-// 3 css classes for past, current and future tasks
-// have classes change depending on time of day
 
 function updateClass() {
   let currentTime = moment().hour();
@@ -36,19 +27,14 @@ function updateClass() {
       $(this).addClass("past");
     }
   });
-}
-
-// Allow a user to enter an event when they click a timeblock
+};
 
 
 
-// Save the event in local storage when the save button is clicked in that timeblock.
-
-$(".saveBtn").click(function () { //on the click of a button run function
+//  On click of any save button save all entered fields to local storage
+$(".saveBtn").click(function () { 
   let task9 = $("#9");
-  // create element for each timeblock textarea
   localStorage.setItem('input9', task9.val()); 
-  // save value entered in the text area to local storage linked to block id
   let task10 = $("#10"); 
   localStorage.setItem('input10', task10.val());
   let task11 = $("#11"); 
@@ -67,6 +53,7 @@ $(".saveBtn").click(function () { //on the click of a button run function
   localStorage.setItem('input17', task17.val());
 });
 
+// localStorage.setItem('input9', $("#9").val());
 
 // Persist events between refreshes of a page
 
