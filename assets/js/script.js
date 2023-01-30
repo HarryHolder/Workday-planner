@@ -16,60 +16,46 @@ function updateClass() {
   let taskblockEl = $(".task-block");
 
   taskblockEl.each(function () {
-    if ($(this).attr("id") > currentTime) {
-      $(this).removeClass("current past");
-      $(this).addClass("future");
-    } else if ($(this).attr("id") == currentTime) {
-      $(this).removeClass("future past");
-      $(this).addClass("current");
-    } else if ($(this).attr("id") < currentTime) {
-      $(this).removeClass("current future");
+    if ($(this).attr("id") < currentTime) {
       $(this).addClass("past");
+    } else if ($(this).attr("id") === currentTime) {
+      $(this).removeClass("past");
+      $(this).addClass("current");
+    } else if ($(this).attr("id") > currentTime) {
+      $(this).removeClass("current");
+      $(this).removeClass("past");
+      $(this).addClass("future");
     }
   });
-};
+}
 
 
 
 //  On click of any save button save all entered fields to local storage
 $(".saveBtn").click(function () { 
-  let task9 = $("#9");
-  localStorage.setItem('input9', task9.val()); 
-  let task10 = $("#10"); 
-  localStorage.setItem('input10', task10.val());
-  let task11 = $("#11"); 
-  localStorage.setItem('input11', task11.val());
-  let task12 = $("#12"); 
-  localStorage.setItem('input12', task12.val());
-  let task13 = $("#13"); 
-  localStorage.setItem('input13', task13.val());
-  let task14 = $("#14"); 
-  localStorage.setItem('input14', task14.val());
-  let task15 = $("#15"); 
-  localStorage.setItem('input15', task15.val());
-  let task16 = $("#16"); 
-  localStorage.setItem('input16', task16.val());
-  let task17 = $("#17"); 
-  localStorage.setItem('input17', task17.val());
+  let value = $(this).siblings(".task-block").val();
+  let time = $(this).siblings(".hour").attr("id");
+  let date = moment().format("dddd, LL");
+  let task = [value, date];
+  localStorage.setItem(time, JSON.stringify(task));
 });
 
-// localStorage.setItem('input9', $("#9").val());
-
-// Persist events between refreshes of a page
-
 function loadTasks() {
-  $("#9").val(localStorage.getItem('input9'));
-  $("#10").val(localStorage.getItem('input10'));
-  $("#11").val(localStorage.getItem('input11'));
-  $("#12").val(localStorage.getItem('input12'));
-  $("#13").val(localStorage.getItem('input13'));
-  $("#14").val(localStorage.getItem('input14'));
-  $("#15").val(localStorage.getItem('input15'));
-  $("#16").val(localStorage.getItem('input16'));
-  $("#17").val(localStorage.getItem('input17'));
+  $(".task-block").each(function (){
+    let task = JSON.parse(localStorage.getItem($(this).siblings(".hour").attr("id")));
+    console.log(task);
+    let taskDate = task[1];
+    let currentDate = moment().format("dddd, LL");
+    if (currentDate === taskDate) {
+      $(this).text (task[0]);
+    } else {
+      localStorage.clear();
+    }
+  })
 }
+
+setInterval(updateClass, 10000);
 
 // Load page
 init();
 
-setInterval(updateClass, 60 * 1000);
