@@ -50,6 +50,7 @@ textarea {
 .past {
   background-color: #d3d3d3;
   color: black;
+  text-decoration: line-through;
 }
 
 .current {
